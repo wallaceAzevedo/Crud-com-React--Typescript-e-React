@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Header } from './components/Header';
+import { Page, usePage} from './contexts/Page';
 
-function App() {
+const App = () => {
+  const {page} = usePage();
+  const renderSwitch = () => {
+    switch (page) {
+      case Page.Articles:
+        return <div>Articles</div>;
+      case Page.Authors:
+        return <div>Authors</div>;
+        default:
+          return'';
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      {renderSwitch}
     </div>
   );
 }
