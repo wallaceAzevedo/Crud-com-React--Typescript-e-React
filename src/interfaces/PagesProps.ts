@@ -6,7 +6,7 @@ import { IChangeElement } from "../hooks/useForms";
 
 export interface RecordIndexProps<T>{
     ListItem:React.FC<ListItemProps<T>>;
-    apiPath: string;
+    apiPath:string;
     apiOptions:{};
     FormFields:React.FC<FormFieldsProps<T>>;
     emptyRecord: T;
@@ -18,7 +18,7 @@ export interface RecordListProps<T> {
     emptyRecord: T;
     activeRecord:T;
     setActiveRecord:Function;
-    loading: boolean;
+    loading:boolean;
     error?:AxiosError;
 }
 
@@ -30,13 +30,14 @@ export interface RecordMutaionsProps<T> {
     FormFields: React.FC<FormFieldsProps<T>>;
     activeRecord:T;
     apiPath:string;
-    callback: Function;
+    callback:Function;
 }
 
 export interface RecordNewProps<T> {
     FormFields: React.FC<FormFieldsProps<T>>;
     activeRecord: T;
     create:Action<T>;
+    success?:boolean;
   }
 
 export interface RecordEditProps<T> {
@@ -44,12 +45,14 @@ export interface RecordEditProps<T> {
     activeRecord: T;
     update:Action<T>;
     remove:Action<T>;
+    success?:boolean;
 }
 
 export interface RecordFormProps<T> {
     FormFields: React.FC<FormFieldsProps<T>>;
   activeRecord: T;
   submitAction:Action<T>;
+  success?:boolean;
 }
 
 export interface FormFieldsProps<T> {
