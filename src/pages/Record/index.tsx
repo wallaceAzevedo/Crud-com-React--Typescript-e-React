@@ -1,20 +1,43 @@
+import {useState} from 'react';
 import { Record } from "../../interfaces/RecordEntities";
 import { RecordIndexProps } from "../../interfaces/PagesProps";
 import { useFeth } from "../../hooks/useFetch";
 import { RecordList} from './List';
+import {RecordMutations} from './Mutations'
 
 export const RecordIndex = <T extends Record>({
     ListItem,
     apiPath,
     apiOptions,
+    FormFields,
+    emptyRecord,
 }: RecordIndexProps<T> ) =>{
-    const { recods } = useFeth<T>(apiPath, apiOptions);
+    const [activeRecord, setActiveRecord] = useState<T>(emptyRecord);
+    const { records, setVersion, loading, error } = useFeth<T>(apiPath, apiOptions);
 
+    const callback = () =>{
+        setVersion(+new Date());
+        setActiveRecord(emptyRecord);
+    }
     return (
-        <div className="page">
+        <div className="page" >
             <div className="content">
-                <RecordList<T> ListItem={ListItem} records={recods}/>
+                <RecordList<T> 
+                ListItem={ListItem} 
+                records={records}
+                emptyRecord={emptyRecord}
+                activeRecord={activeRecord}
+                setActiveRecord={setActiveRecord}
+                loading={loading}
+                error={error}
+                />
+                <RecordMutations<T>
+                   FormFields={FormFields}
+                   activeRecord={activeRecord}
+                   apiPath={apiPath}
+                   callback={callback}
+                />
             </div>
         </div>
-    )
-}
+    );
+};

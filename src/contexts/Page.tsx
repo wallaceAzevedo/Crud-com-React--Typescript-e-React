@@ -20,6 +20,7 @@ export const usePage = ( ) =>useContext(Context);
 export const PageStore: React.FC = ({ children }) => {
     const [page, setPage] = useState(Page.Articles);
     return (
-        <Context.Provider  value={{ page, setPage }}>{children}</Context.Provider>
+        <Context.Provider  value={{ page, setPage }}>{children}
+        </Context.Provider>
     );
 };
