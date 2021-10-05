@@ -12,7 +12,7 @@ type ContextType = {
 
 const Context = createContext<ContextType>({
     page: Page.Articles,
-    setPage:(page: Page) => console.warn('no page provider'),
+    setPage:(page) => console.warn('no page provider'),
 });
 
 export const usePage = ( ) =>useContext(Context);

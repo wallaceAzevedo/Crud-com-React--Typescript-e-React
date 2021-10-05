@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Record } from '../../interfaces/RecordEntities';
 import {RecordFormProps} from '../../interfaces/PagesProps';
-import { useForm } from '../../hooks/useForms';
+import { useForm } from '../../hooks/useForm';
 
 export const RecordForm = <T extends Record>({
     FormFields,

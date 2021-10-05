@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Record } from '../../interfaces/RecordEntities';
-import { RecordMutaionsProps } from '../../interfaces/PagesProps';
+import { RecordMutationsProps } from '../../interfaces/PagesProps';
 import { RecordNew } from './New';
 import { RecordEdit } from './Edit';
 import { useMutation } from '../../hooks/useMutation';
@@ -12,7 +12,7 @@ export const RecordMutations = <T extends Record>({
     activeRecord,
     apiPath,
     callback,
-}: RecordMutaionsProps<T>) => {
+}: RecordMutationsProps<T>) => {
   const { 
     create, 
     update, 

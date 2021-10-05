@@ -1,16 +1,16 @@
 export interface Record {
-    id?:number;
+    id?: number;
 }
 
 export interface Article extends Record {
-    id?:number;
+    id?: number;
     title: string;
-    text:string;
+    text: string;
     author?: Author | null;
 }
 
 export interface Author extends Record {
-    id?:number;
-    name:string;
-    articles?:Article[];
+    id?: number;
+    name: string;
+    articles?: Article[];
 }
