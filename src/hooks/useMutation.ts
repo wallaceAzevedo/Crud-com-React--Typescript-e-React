@@ -42,12 +42,12 @@ export const useMutation = <T extends Record>(
     });
 
     const update: Action<T> = wrap(async (record:T) => {
-        await axios.post(`${url}/${record.id}`, record);
-    })
+        await axios.put(`${url}/${record.id}`, record);
+    });
 
     const remove: Action<T> = wrap(async (record:T) => {
         await axios.delete(`${url}/${record.id}`);
-    })
+    });
 
     return {
         create,
