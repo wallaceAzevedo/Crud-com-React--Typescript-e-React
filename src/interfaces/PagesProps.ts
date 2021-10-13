@@ -41,8 +41,8 @@ export interface RecordNewProps<T> {
 export interface RecordEditProps<T> {
   FormFields: React.FC<FormFieldsProps<T>>;
   activeRecord: T;
-  update: Action<T>;
-  remove: Action<T>;
+  update:Action<T>;
+  remove:Action<T>;
   success?: boolean;
 }
 

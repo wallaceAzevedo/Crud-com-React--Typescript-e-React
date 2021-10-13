@@ -7,17 +7,17 @@ export const ArticleIndex: React.FC = () => {
   const apiOptions = { relations: ['author'] };
 
   const emptyRecord = {
-    title:'',
-    text:'',
+    title: '',
+    text: '',
   };
 
-    return (
-        <RecordIndex<Article>
-        ListItem={ArticleListItem}
-        apiPath="articles"
-        apiOptions={apiOptions}
-        FormFields={ArticleFormFields}
-        emptyRecord={emptyRecord}
-      />
-    );
+  return (
+    <RecordIndex<Article>
+      ListItem={ArticleListItem}
+      apiPath="articles"
+      apiOptions={apiOptions}
+      FormFields={ArticleFormFields}
+      emptyRecord={emptyRecord}
+    />
+  );
 };

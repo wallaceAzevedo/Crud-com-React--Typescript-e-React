@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios';
 import { useState, useEffect } from 'react';
 import {Record} from '../interfaces/RecordEntities';
 
-export const useFeth = <T extends Record>(path: string, options?: {}) => {
+export const useFetch = <T extends Record>(path: string, options?: {}) => {
     const [records, setRecords] = useState<T[]>([]);
     const [version, setVersion] =useState(+new Date());
     const [loading, setLoading] = useState<boolean>(false);

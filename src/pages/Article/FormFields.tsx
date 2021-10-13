@@ -1,4 +1,4 @@
-import { useFeth } from '../../hooks/useFetch';
+import { useFetch } from '../../hooks/useFetch';
 import { FormFieldsProps } from '../../interfaces/PagesProps';
 import { Article, Author } from '../../interfaces/RecordEntities';
 
@@ -8,7 +8,7 @@ export const ArticleFormFields: React.FC<IProps> = ({
   formState,
   handleChange,
 }) => {
-  const authorsFetch = useFeth<Author>('authors');
+  const authorsFetch = useFetch<Author>('authors');
 
   return (
     <div>
@@ -44,7 +44,7 @@ export const ArticleFormFields: React.FC<IProps> = ({
             </option>
           ))}
         </select>
-          </div>
+      </div>
     </div>
   );
 };

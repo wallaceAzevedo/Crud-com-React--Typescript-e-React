@@ -7,7 +7,7 @@ export const ArticleListItem: React.FC<IProps> = ({ record }) => {
   return (
     <div>
       <div className="title">{record.title}</div>
-      <div className="author">By {record.author?.name || 'Desconhecido'}</div>
+      <div className="author">By {record.author?.name || 'Unknown'}</div>
     </div>
   );
 };

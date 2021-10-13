@@ -1,31 +1,31 @@
 import { useEffect } from 'react';
 import { Record } from '../../interfaces/RecordEntities';
-import {RecordFormProps} from '../../interfaces/PagesProps';
+import { RecordFormProps } from '../../interfaces/PagesProps';
 import { useForm } from '../../hooks/useForm';
 
 export const RecordForm = <T extends Record>({
-    FormFields,
+  FormFields,
+  activeRecord,
+  submitAction,
+  success,
+}: RecordFormProps<T>) => {
+  const { formState, setFormState, handleChange, handleSubmit } = useForm<T>(
     activeRecord,
-    submitAction,
-    success,
-}:RecordFormProps<T>) =>{
-    const { formState, setFormState, handleChange, handleSubmit } = useForm<T>(
-        activeRecord,
-        submitAction
-        );
+    submitAction
+  );
 
-    useEffect(() =>{
-        if(activeRecord.id || success){
-            setFormState(activeRecord);
-        }
-    },[setFormState, activeRecord, success]);
+  useEffect(() => {
+    if (activeRecord.id || success) {
+      setFormState(activeRecord);
+    }
+  }, [setFormState, activeRecord, success]);
 
-    return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <FormFields formState={formState} handleChange={handleChange}/>
-                <input type="submit"/>
-            </form>
-        </div>
-    );
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <FormFields formState={formState} handleChange={handleChange} />
+        <input type="submit" />
+      </form>
+    </div>
+  );
 };
